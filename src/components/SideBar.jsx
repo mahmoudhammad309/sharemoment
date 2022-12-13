@@ -10,7 +10,6 @@ const isNotActiveStyle =
   'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 
 const Sidebar = ({ user, closeToggle }) => {
-  console.log({ user });
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
   };
