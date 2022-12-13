@@ -48,7 +48,7 @@ const PinDetail = ({ user }) => {
           {
             comment,
             _key: uuidv4(),
-            postedBy: { _type: 'postedBy', _ref: user._id },
+            postedBy: { _type: 'postedBy', _ref: user?._id },
           },
         ])
         .commit()
@@ -83,7 +83,7 @@ const PinDetail = ({ user }) => {
             <div className="flex items-center justify-between">
               <div className="flex gap-2 items-center">
                 <a
-                  href={`${pinDetail.image.asset.url}?dl=`}
+                  href={`${pinDetail?.image.asset.url}?dl=`}
                   download
                   className="bg-secondaryColor p-2 text-xl rounded-full flex items-center justify-center text-dark opacity-75 hover:opacity-100"
                 >
@@ -103,11 +103,11 @@ const PinDetail = ({ user }) => {
               <p className="mt-3">{pinDetail.about}</p>
             </div>
             <Link
-              to={`/user-profile/${pinDetail?.postedBy._id}`}
+              to={`/user-profile/${pinDetail?.postedBy?._id}`}
               className="flex gap-2 mt-5 items-center bg-white rounded-lg "
             >
               <img
-                src={pinDetail?.postedBy.image}
+                src={pinDetail?.postedBy?.image}
                 className="w-10 h-10 rounded-full"
                 alt="user-profile"
               />
@@ -133,9 +133,9 @@ const PinDetail = ({ user }) => {
               ))}
             </div>
             <div className="flex flex-wrap mt-6 gap-3">
-              <Link to={`/user-profile/${user._id}`}>
+              <Link to={`/user-profile/${user?._id}`}>
                 <img
-                  src={user.image}
+                  src={user?.image}
                   className="w-10 h-10 rounded-full cursor-pointer"
                   alt="user-profile"
                 />
